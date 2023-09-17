@@ -11,18 +11,30 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 Content-Disposition: form-data; name="file"; filename="example.mp3"
 Content-Type: audio/mpeg
 
-< ./example.mp3
+< ./exemple.mp3
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 ###
 
 # @name create-transcription
-POST http://localhost:3333/videos/fd00be31-4c0c-4950-8fbc-146de5d2b04d/transcription
+POST http://localhost:3333/videos/72d34840-41a0-419e-b3e7-5a04f241f55d/transcription
 Content-Type: application/json
 
 {
-    "prompt": "saude, loja"
+    "prompt": "Introdução a PHP, linguagem de programação"
 }
 
 ###
+
+# @name generate-ai-compilation
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+    "videoId": "78c3218d-d930-40e4-a17c-de6948b901b4",
+    "temperature": 0.5,
+    "prompt": "Gere um resumo sucinto do video informado a seguir: '''{transcription}'''"
+
+}
+
